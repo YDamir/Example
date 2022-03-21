@@ -1,0 +1,43 @@
+Console.WriteLine("Введите размер матрицы");
+int m = Convert.ToInt32(Console.ReadLine());
+int n = Convert.ToInt32(Console.ReadLine());
+int[,] a = new int[m,n];
+Console.WriteLine();
+Console.WriteLine("Заполни матрицу");
+for (int i = 0; i < m; i++)
+{
+    for (int j = 0; j < n; j++)
+    {
+        a[i, j] = Convert.ToInt32(Console.ReadLine());
+    }
+}
+Console.WriteLine();
+for (int i = 0; i < m - 1; i++)
+{
+    for (int j = 0; j < n - 1; j++)
+    {
+        for (int q = i + 1; q != m; q++)
+        {
+            for (int t = j + 1; t != n; t++)
+            {
+                if (a[i, j] == a[q, t])
+                {
+                    Console.WriteLine("Вы ввели одинаковые элменты");
+                    return;
+                }
+            }
+        }
+    }
+}
+Console.WriteLine();
+for (int i = 0; i < m; i++)
+{
+    for (int j = 0; j < n; j++)
+    {
+        Console.Write(a[i, j] + "\t");
+    }
+    Console.WriteLine();
+}
+Console.WriteLine();
+Console.WriteLine($"Кол-во строк:{m}");
+Console.WriteLine($"Кол-во столбцов:{n}");
